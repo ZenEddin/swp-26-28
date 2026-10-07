@@ -1,19 +1,20 @@
 Console.Write("Gib einen Wert ein: ");
 string? input = Console.ReadLine();
-if (int.TryParse(input, out int integerValue))
+if (int.TryParse(input, out _))
 {
     Console.WriteLine("Die Eingabe ist ein Integer.");
+    return;
 }
-else if (bool.TryParse(input, out bool boolValue)) 
+if (bool.TryParse(input, out _))
 {
     Console.WriteLine("Die Eingabe ist ein Bool.");
+    return;
 }
-else if (double.TryParse(input, out double doubleValue))
+if (double.TryParse(input, out _))
 {
     Console.WriteLine("Die Eingabe ist eine rationale Zahl (Double).");
+    return;
 }
-else
-{
-    Console.WriteLine("Die Eingabe ist ein String.");
-    Console.WriteLine("Drücke Enter zum Beenden...");
-    Console.ReadLine();
+Console.WriteLine("Die Eingabe ist ein String.");
+Console.WriteLine("Drücke Enter zum Beenden...");
+Console.ReadLine();
