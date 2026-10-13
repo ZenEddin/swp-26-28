@@ -5,7 +5,12 @@ class Program
     static void Main()
     {
         Console.Write("Geben Sie eine natürliche Zahl ein: ");
-        int zahl = Convert.ToInt32(Console.ReadLine());
+
+        if (!int.TryParse(Console.ReadLine(), out int zahl) || zahl < 0)
+        {
+            Console.WriteLine("Ungültige Eingabe! Bitte geben Sie eine natürliche Zahl ein.");
+            return;
+        }
 
         Console.WriteLine();
         Console.WriteLine("Geben Sie eine Zahl zwischen 1 und 3 ein, um eine mathematische Operation auszuwählen:");
@@ -14,12 +19,17 @@ class Program
         Console.WriteLine("3) Fakultät");
         Console.Write("Ihre Auswahl: ");
 
-        int auswahl = Convert.ToInt32(Console.ReadLine());
+        if (!int.TryParse(Console.ReadLine(), out int auswahl))
+        {
+            Console.WriteLine("Ungültige Eingabe!");
+            return;
+        }
 
         switch (auswahl)
         {
             case 1:
-                Console.WriteLine("Das Quadrat ist: " + (zahl * zahl));
+                long quadrat = (long)zahl * zahl;
+                Console.WriteLine("Das Quadrat ist: " + quadrat);
                 break;
 
             case 2:
@@ -27,6 +37,12 @@ class Program
                 break;
 
             case 3:
+                if (zahl > 20)
+                {
+                    Console.WriteLine("Die Zahl ist zu groß für die Fakultät mit long.");
+                    break;
+                }
+
                 long fakultaet = 1;
 
                 for (int i = 1; i <= zahl; i++)
@@ -38,7 +54,7 @@ class Program
                 break;
 
             default:
-                Console.WriteLine("Ungültige Auswahl.");
+                Console.WriteLine("Ungültige Auswahl. Bitte 1, 2 oder 3 eingeben.");
                 break;
         }
     }
