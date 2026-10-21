@@ -1,36 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Text;
-using System.Xml.Linq;
 
 namespace FirstOOP
-
 {
-
     public class Kuh
     {
+        string _name; // private field for the name of the Kuh
+        string _colour; // private field for the colour of the Kuh
 
-        string _name; // private field for the name of the Kuhstring _colour; // private field for the colour of the Kuhpublic string Name // public property for the name of the Kuh        {
+        public string Name // public property for the name of the Kuh
+        {
+            get { return _name; } // getter for the name
+            set { _name = value; } // setter for the name
+        }
 
-        get { return _name; } // getter for the nameset { _name = value; } // setter for the name        }
+        public string Colour // public property for the colour of the Kuh
+        {
+            get { return _colour; } // getter for the colour
+            set { _colour = value; } // setter for the colour
+        }
 
-
-        public string Colour // public property for the colour of the Kuh        {
-
-            get { return _colour; } // getter for the colourset { _colour = value; } // setter for the colour        }
-
-
-// Constructor for the Kuh classpublic Kuh(string name, string colour)
-
-{
-
-    _name = name;
-
-    _colour = colour;
-
-}
-
+        // Constructor for the Kuh class
+        public Kuh(string name, string colour)
+        {
+            _name = name;
+            _colour = colour;
+        }
     }
-
 }

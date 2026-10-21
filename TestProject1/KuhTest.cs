@@ -1,5 +1,7 @@
-﻿using firstOOP;
-namespace MyFirstTestProject;
+﻿using FirstOOP;
+using NUnit.Framework;
+
+namespace KuhTest;
 
 public class Tests
 {
@@ -11,7 +13,7 @@ public class Tests
     [Test]
     public void Test1()
     {
-        Kuh myKuh = new Kuh("paula", "Schwarz");
+        Kuh myKuh = new Kuh("Paula", "Schwarz");
         Assert.That(myKuh.Name, Is.EqualTo("Paula"));
     }
 }
