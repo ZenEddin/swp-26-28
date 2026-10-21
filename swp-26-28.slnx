@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="firstOOP/firstOOP.csproj" DisplayName="FirstOOP" Id="2c3ecdab-3590-49b2-ba59-3ced9902806e" />
+  <Project Path="MyFirstConsoleApp/MyFirstConsoleApp.csproj" Id="baffd187-7594-4285-84ce-a09181642804" />
+  <Project Path="TestProject1/TestProject1.csproj" />
+</Solution>
