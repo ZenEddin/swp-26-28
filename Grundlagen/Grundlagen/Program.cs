@@ -9,7 +9,7 @@ class Program
 
         if (int.TryParse(eingabe, out int zahl))
         {
-            Console.WriteLine("Welche mathematische Operation möchten Sie ausführen?");
+            Console.WriteLine("Sie haben eine ganze Zahl eingegeben, welche mathematische Operation möchten Sie darauf ausführen?");
             Console.WriteLine("1) Addition");
             Console.WriteLine("2) Multiplikation");
             Console.WriteLine("3) Division");
@@ -26,6 +26,8 @@ class Program
             switch (auswahl)
             {
                 case 1:
+                case 2:
+                case 3:
                     Console.Write("Geben Sie die zweite Zahl ein: ");
 
                     if (!int.TryParse(Console.ReadLine(), out int zahl2))
@@ -34,44 +36,33 @@ class Program
                         return;
                     }
 
-                    Console.WriteLine("Ergebnis: " + (zahl + zahl2));
-                    break;
-
-                case 2:
-                    Console.Write("Geben Sie die zweite Zahl ein: ");
-
-                    if (!int.TryParse(Console.ReadLine(), out int faktor))
+                    switch (auswahl)
                     {
-                        Console.WriteLine("Ungültige Eingabe!");
-                        return;
+                        case 1:
+                            Console.WriteLine("Ergebnis: " + ((long)zahl + zahl2));
+                            break;
+
+                        case 2:
+                            Console.WriteLine("Ergebnis: " + ((long)zahl * zahl2));
+                            break;
+
+                        case 3:
+                            if (zahl2 == 0)
+                            {
+                                Console.WriteLine("Division durch 0 ist nicht möglich!");
+                                return;
+                            }
+
+                            Console.WriteLine("Ergebnis: " + ((double)zahl / zahl2));
+                            break;
                     }
-
-                    Console.WriteLine("Ergebnis: " + (zahl * faktor));
-                    break;
-
-                case 3:
-                    Console.Write("Geben Sie die zweite Zahl ein: ");
-
-                    if (!int.TryParse(Console.ReadLine(), out int divisor))
-                    {
-                        Console.WriteLine("Ungültige Eingabe!");
-                        return;
-                    }
-
-                    if (divisor == 0)
-                    {
-                        Console.WriteLine("Division durch 0 ist nicht möglich!");
-                        return;
-                    }
-
-                    Console.WriteLine("Ergebnis: " + ((double)zahl / divisor));
                     break;
 
                 case 4:
                     if (zahl < 0 || zahl > 20)
                     {
                         Console.WriteLine("Die Zahl muss zwischen 0 und 20 liegen.");
-                        return;
+                        break;
                     }
 
                     long fakultaet = 1;
@@ -88,7 +79,7 @@ class Program
                     if (zahl < 0)
                     {
                         Console.WriteLine("Keine reelle Wurzel aus einer negativen Zahl!");
-                        return;
+                        break;
                     }
 
                     Console.WriteLine("Ergebnis: " + Math.Sqrt(zahl));
@@ -102,10 +93,10 @@ class Program
             return;
         }
 
-        Console.WriteLine("Was möchten Sie mit der Zeichenkette machen?");
+        Console.WriteLine("Sie haben eine Zeichenkette eingegeben. Was wollen Sie damit machen?");
         Console.WriteLine("1) Alle Selbstlaute entfernen");
         Console.WriteLine("2) Die Zeichenkette umdrehen");
-        Console.WriteLine("3) Anzahl der Zeichen ausgeben");
+        Console.WriteLine("3) Die Anzahl an Zeichen ausgeben");
         Console.Write("Ihre Auswahl: ");
 
         if (!int.TryParse(Console.ReadLine(), out int textAuswahl))
