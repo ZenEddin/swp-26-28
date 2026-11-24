@@ -26,3 +26,4 @@ class Cat(string name, string colour) : Animal(name, colour)
 {
     public override void MakeSound() => Console.WriteLine("Miau");
 }
+
